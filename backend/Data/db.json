@@ -1,0 +1,157 @@
+{
+  "users": [
+    {
+      "id": "usr-restrepo",
+      "username": "restrepo",
+      "password": "demo123",
+      "clientName": "Familia Restrepo-Kaufmann",
+      "tier": "HNW / Family Office",
+      "domicile": "Barranquilla, Colombia",
+      "totalNetWorth": 12500000,
+      "currency": "USD",
+      "riskScore": "Bajo (18/100)",
+      "riskNumeric": 18,
+      "assets": [
+        {
+          "id": "AST-UST-01",
+          "name": "Bonos del Tesoro",
+          "class": "Renta Fija Soberana",
+          "ticker": "UST-10Y / T-Bills",
+          "value": 5200000,
+          "allocationPercent": 41.6,
+          "currency": "USD",
+          "status": "Protegido",
+          "dayChangePercent": 0.12,
+          "custodian": "JP Morgan Private Bank"
+        },
+        {
+          "id": "AST-EQ-TECH-02",
+          "name": "Renta Variable Tech",
+          "class": "Equity Growth",
+          "ticker": "NVDA / MSFT / TSLA / xAI SPV",
+          "value": 4800000,
+          "allocationPercent": 38.4,
+          "currency": "USD",
+          "status": "Protegido — vigilancia de volatilidad",
+          "dayChangePercent": -0.84,
+          "custodian": "Goldman Sachs PWM"
+        },
+        {
+          "id": "AST-FX-03",
+          "name": "Reservas FX",
+          "class": "Liquidez Multidivisa",
+          "ticker": "USD / EUR / COP",
+          "value": 2500000,
+          "allocationPercent": 20.0,
+          "currency": "USD",
+          "status": "Protegido — overlay cambiario",
+          "dayChangePercent": -1.35,
+          "custodian": "Bancolombia Banca Privada"
+        }
+      ],
+      "recentAlerts": [
+        {
+          "id": "ALT-FX-2104",
+          "type": "MarketRisk",
+          "severity": "Media",
+          "title": "Volatilidad cambiaria USD/COP detectada",
+          "description": "Gap intradía de 2.8% en USD/COP que presiona las reservas FX ($2.5M). El overlay de cobertura sigue activo.",
+          "status": "Activa",
+          "detectedMinutesAgo": 37,
+          "analyzedBy": "SentinelWealth Market Shield",
+          "amountUsd": 2500000,
+          "recommendedAction": "Mantener overlay FX y revisar umbral de stop a +3.2%."
+        },
+        {
+          "id": "ALT-FRD-2105",
+          "type": "Fraud",
+          "severity": "Crítica",
+          "title": "Retiro sospechoso de $180,000 USD bloqueado",
+          "description": "Instrucción de retiro hacia cuenta no whitelistada. IP 185.220.101.47 (Tor-exit) no coincide con Barranquilla / Miami. Wire SWIFT bloqueado.",
+          "status": "Activa — bloqueada",
+          "detectedMinutesAgo": 12,
+          "analyzedBy": "SentinelWealth Fraud Engine",
+          "amountUsd": 180000,
+          "sourceIp": "185.220.101.47",
+          "recommendedAction": "Contactar al titular por canal verificado. No autorizar el SWIFT."
+        }
+      ]
+    },
+    {
+      "id": "usr-mejia",
+      "username": "mejia",
+      "password": "demo123",
+      "clientName": "Sofía Mejía Herrera",
+      "tier": "HNW emergente",
+      "domicile": "Medellín, Colombia",
+      "totalNetWorth": 3200000,
+      "currency": "USD",
+      "riskScore": "Medio (44/100)",
+      "riskNumeric": 44,
+      "assets": [
+        {
+          "id": "AST-RE-01",
+          "name": "Inmuebles comerciales El Poblado",
+          "class": "Real Estate",
+          "ticker": "Locales / oficinas",
+          "value": 1800000,
+          "allocationPercent": 56.3,
+          "currency": "USD",
+          "status": "Protegido",
+          "dayChangePercent": 0.05,
+          "custodian": "Fiduciaria Bancolombia"
+        },
+        {
+          "id": "AST-BOND-02",
+          "name": "TES y renta fija local",
+          "class": "Renta Fija",
+          "ticker": "TES 2032",
+          "value": 900000,
+          "allocationPercent": 28.1,
+          "currency": "USD",
+          "status": "Protegido",
+          "dayChangePercent": -0.22,
+          "custodian": "Valores Bancolombia"
+        },
+        {
+          "id": "AST-CRYPTO-03",
+          "name": "Sleeve cripto (BTC/ETH)",
+          "class": "Activos digitales",
+          "ticker": "BTC / ETH",
+          "value": 500000,
+          "allocationPercent": 15.6,
+          "currency": "USD",
+          "status": "Observación — alta volatilidad",
+          "dayChangePercent": -3.4,
+          "custodian": "Custodia cold wallet + exchange"
+        }
+      ],
+      "recentAlerts": [
+        {
+          "id": "ALT-CRY-3301",
+          "type": "MarketRisk",
+          "severity": "Media",
+          "title": "Caída de 3.4% en sleeve cripto",
+          "description": "El sleeve de USD 500k en BTC/ETH superó el umbral diario de -3%. No hay evidencia de hack; es volatilidad de mercado.",
+          "status": "Activa",
+          "detectedMinutesAgo": 22,
+          "analyzedBy": "SentinelWealth Market Shield",
+          "amountUsd": 500000,
+          "recommendedAction": "No apalancar. Revisar stop si rompe -6% intradía."
+        },
+        {
+          "id": "ALT-PHISH-3302",
+          "type": "Fraud",
+          "severity": "Crítica",
+          "title": "Intento de drenar wallet con fake airdrop",
+          "description": "Se bloqueó una firma de smart contract (setApprovalForAll) hacia un spender no whitelistado. El mensaje llegó por Telegram.",
+          "status": "Activa — bloqueada",
+          "detectedMinutesAgo": 8,
+          "analyzedBy": "SentinelWealth Fraud Engine",
+          "amountUsd": 500000,
+          "recommendedAction": "No firmar. Revocar allowances y reportar el bot de Telegram."
+        }
+      ]
+    }
+  ]
+}
