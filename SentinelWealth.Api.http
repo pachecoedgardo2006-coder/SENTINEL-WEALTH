@@ -1,0 +1,39 @@
+@host = http://localhost:5088
+
+GET {{host}}/
+Accept: application/json
+
+### Health
+GET {{host}}/api/health
+Accept: application/json
+
+### Portfolio HNW
+GET {{host}}/api/portfolio/summary
+Accept: application/json
+
+### Scanner — texto (estafa)
+POST {{host}}/api/scanner/analyze
+Content-Type: application/json
+
+{
+  "inputType": "text",
+  "content": "URGENTE: transfiera 80.000 USD en bitcoin ahora o su cuenta será bloqueada. Envíe su frase semilla de 12 palabras."
+}
+
+### Scanner — URL
+POST {{host}}/api/scanner/analyze
+Content-Type: application/json
+
+{
+  "inputType": "url",
+  "content": "http://secure-update-bank.xyz/login"
+}
+
+### Scanner — contrato
+POST {{host}}/api/scanner/analyze
+Content-Type: application/json
+
+{
+  "inputType": "contract",
+  "content": "El firmante cede derechos patrimoniales mediante poder irrevocable, sin retracto, y autoriza el wire SWIFT inmediato."
+}
